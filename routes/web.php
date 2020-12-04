@@ -59,3 +59,11 @@ Route::group(['prefix'=>'member','as'=>'member.'], function(){
 
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

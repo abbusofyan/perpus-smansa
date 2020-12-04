@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Http\Request;
-use Auth;
 
 class LoginController extends Controller
 {
@@ -28,8 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-
-    // protected $redirectTo = '/admin/';
+    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
      * Create a new controller instance.
@@ -40,21 +37,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
-
-    protected function redirectTo()
-    {
-        session()->flash('success', 'You are logged in!');
-        $user = Auth::user();
-        if ($user->level == '1') {
-          return '/admin/';
-        } else {
-          echo url('member');
-          return '/member/';
-        }
-    }
-
-    public function login(Request $request) {
-      dd($request->all());
-    }
-
 }
