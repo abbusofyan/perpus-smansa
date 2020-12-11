@@ -19,8 +19,9 @@ Route::get('/', 'HomeController@index')->name('home');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/detail', 'HomeController@detail')->name('detail');
 
+Route::post('/get_data_by_nis', 'HomeController@get_data_by_nis')->name('get_data_by_nis');
 
-Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
+Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => ['auth', 'admin']], function(){
     Route::get('/', ['as' => 'index', 'uses' => 'AdminController@index']);
 
     Route::group(['prefix'=>'buku','as'=>'buku.'], function(){
@@ -31,6 +32,7 @@ Route::group(['prefix'=>'admin','as'=>'admin.'], function(){
     Route::group(['prefix'=>'anggota','as'=>'anggota.'], function(){
         Route::get('/', ['as' => 'index', 'uses' => 'AnggotaController@index']);
         Route::get('/generateQrCode', ['as' => 'generateQrCode', 'uses' => 'AnggotaController@generateQrCode']);
+        Route::post('/store', ['as' => 'store', 'uses' => 'AnggotaController@store']);
     });
 
     Route::group(['prefix'=>'peminjaman','as'=>'peminjaman.'], function(){

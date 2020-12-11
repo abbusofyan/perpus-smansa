@@ -41,16 +41,13 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    protected function redirectTo()
+    protected function authenticated(Request $request, $user)
     {
-        session()->flash('success', 'You are logged in!');
-        $user = Auth::user();
-        if ($user->level == '1') {
-          return '/admin/';
-        } else {
-          echo url('member');
-          return '/member/';
-        }
+      if ($user->level == '1') {
+        return redirect('/admin/');
+      } else {
+        return redirect('/member/');
+      }
     }
 
 }

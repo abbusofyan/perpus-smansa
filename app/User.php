@@ -45,4 +45,9 @@ class User extends Authenticatable
 
         return "{$this->name} {$this->last_name}";
     }
+
+    public function level()
+    {
+        return $this->level; // this looks for an admin column in your users table
+    }
 }

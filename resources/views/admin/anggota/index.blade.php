@@ -11,6 +11,11 @@
 @endsection
 
 @section('main-content')
+  @if (Session::has('success'))
+    <div class="alert alert-success" role="alert">
+      {{Session::get('success')}}
+    </div>
+  @endif
 <!-- Page Heading -->
 <div class="row">
   <div class="col">
@@ -30,7 +35,7 @@
             <thead>
               <tr>
                 <th>No.</th>
-                <th>NISN</th>
+                <th>NIS</th>
                 <th>Nama</th>
                 <th>Jurusan</th>
                 <th>Kelas</th>
@@ -38,226 +43,21 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>1112350245610001</td>
-                <td>Adrian</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>1112350245610002</td>
-                <td>Vania</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>1112350245610003</td>
-                <td>Viona</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>1112350245610004</td>
-                <td>Lyodra</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>5</td>
-                <td>1112350245610005</td>
-                <td>Lorenzo</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td>1112350245610006</td>
-                <td>Krisna</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td>1112350245610007</td>
-                <td>Syifa</td>
-                <td>IPA</td>
-                <td>10</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td>1112350245610201</td>
-                <td>Keisya</td>
-                <td>IPA</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>9</td>
-                <td>1112350245610202</td>
-                <td>Riska</td>
-                <td>IPA</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>1112350245610203</td>
-                <td>Rian</td>
-                <td>IPA</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>11</td>
-                <td>1112350245610204</td>
-                <td>Yoga</td>
-                <td>IPS</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>12</td>
-                <td>1112350245610205</td>
-                <td>Abdul</td>
-                <td>IPS</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>13</td>
-                <td>1112350245610206</td>
-                <td>Nico</td>
-                <td>IPS</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>14</td>
-                <td>1112350245610207</td>
-                <td>Irene</td>
-                <td>IPS</td>
-                <td>11</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>15</td>
-                <td>1112350245610301</td>
-                <td>Aziz</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>16</td>
-                <td>1112350245610302</td>
-                <td>Aisyah</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>17</td>
-                <td>1112350245610303</td>
-                <td>Siti</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>18</td>
-                <td>1112350245610304</td>
-                <td>Herald</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>19</td>
-                <td>1112350245610305</td>
-                <td>Joko</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
-              <tr>
-                <td>20</td>
-                <td>1112350245610306</td>
-                <td>Silvia</td>
-                <td>IPS</td>
-                <td>12</td>
-                <td>
-                    <button class="btn btn-primary btn-sm">Edit</button>
-                    <button class="btn btn-danger btn-sm">Hapus</button>
-                </td>
-              </tr>
+              @php $no = 1; @endphp
+              @foreach ($users as $user)
+                <tr>
+                  <td>{{$no}}</td>
+                  <td>{{$user->nis}}</td>
+                  <td>{{$user->name}}</td>
+                  <td>{{$user->major}}</td>
+                  <td>{{$user->grade}}</td>
+                  <td>
+                    <button type="button" class="btn btn-primary btn-sm" name="button">Detail</button>
+                    <button type="button" class="btn btn-danger btn-sm" name="button">Hapus</button>
+                  </td>
+                </tr>
+                @php $no++; @endphp
+              @endforeach
             </tbody>
           </table>
         </div>
@@ -270,7 +70,8 @@
 <div class="modal fade" id="add_member" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-      <form>
+      <form action="{{route('admin.anggota.store')}}" method="post">
+        @csrf
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Tambah Anggota</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -280,7 +81,7 @@
         <div class="modal-body">
           <div class="form-group">
             <label>Role Member</label>
-            <select class="form-control" id="user_role">
+            <select class="form-control" id="user_role" name="role">
               <option>-- pilih user role --</option>
               <option value="siswa">Siswa</option>
               <option value="guru">Guru</option>
@@ -288,18 +89,18 @@
           </div>
           <div class="field_siswa">
             <div class="form-group">
-              <label>NISN</label>
-              <input type="text" class="form-control" id="nisn">
+              <label>NIS</label>
+              <input type="text" name="nis" class="form-control" id="nisn">
             </div>
             <div class="form-group">
               <label>Nama</label>
-              <input type="text" class="form-control" id="nama">
+              <input type="text" name="name" class="form-control" id="nama">
             </div>
             <div class="row">
               <div class="col">
                 <div class="form-group">
                   <label>Jurusan</label>
-                  <select class="form-control" id="jurusan">
+                  <select class="form-control" name="major" id="jurusan">
                     <option value="">-- pilih jurusan --</option>
                     <option value="IPA">IPA</option>
                     <option value="IPS">IPS</option>
@@ -309,7 +110,7 @@
               <div class="col">
                 <div class="form-group">
                   <label>Kelas</label>
-                  <select class="form-control" id="kelas">
+                  <select class="form-control" name="grade" id="kelas">
                     <option value="">-- pilih kelas --</option>
                     <option value="X">X</option>
                     <option value="XI">XI</option>
@@ -319,8 +120,8 @@
               </div>
             </div>
             <button type="button" class="btn btn-primary" id="btn-generate" name="button">Generate QrCode</button>
-            <div class="rqcode">
-              <input id="qrstring" type="text"/><br />
+            <div class="rqcode"><br>
+              <input id="qrstring" name="qrcode" type="hidden"/><br />
               <div id="qrcode"></div>
             </div>
           </div>
@@ -337,7 +138,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </div>
       </form>
     </div>
