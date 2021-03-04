@@ -15,8 +15,9 @@ class AnggotaController extends Controller
     }
 
     public function index() {
-      $users = User::where('level', 2)->get();
+      $users = User::with('member')->where('level', 2)->get();
       return view('admin.anggota.index', compact('users'));
+      // dd($users);
     }
 
     public function generateQrCode() {
@@ -40,6 +41,20 @@ class AnggotaController extends Controller
       }
       $user->qr_code = $request->qrcode;
       $user->save();
+
+      $member = new Member;
+      $member->user_id = $user->id;
+      $member->major = $request->major;
+      $member->class = $request->class;
+      $member->save();
+
       return redirect()->back()->with(['success' => 'Data anggota berhasil ditambahkan']);
     }
+
+    public function detail($id) {
+      $user = User::where('id', $id)->first();
+      return view('admin.anggota.detail', compact('user'));
+      // dd($user);
+    }
+
 }

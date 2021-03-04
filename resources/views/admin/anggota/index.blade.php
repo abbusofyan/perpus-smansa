@@ -49,10 +49,10 @@
                   <td>{{$no}}</td>
                   <td>{{$user->nis}}</td>
                   <td>{{$user->name}}</td>
-                  <td>{{$user->major}}</td>
-                  <td>{{$user->grade}}</td>
+                  <td>{{$user->member != null ? $user->member->major : ''}}</td>
+                  <td>{{$user->member != null ? $user->member->class : ''}}</td>
                   <td>
-                    <button type="button" class="btn btn-primary btn-sm" name="button">Detail</button>
+                    <a href="{{route('admin.anggota.detail', $user->id)}}" class="btn btn-primary btn-sm" name="button">Detail</a>
                     <button type="button" class="btn btn-danger btn-sm" name="button">Hapus</button>
                   </td>
                 </tr>
@@ -110,7 +110,7 @@
               <div class="col">
                 <div class="form-group">
                   <label>Kelas</label>
-                  <select class="form-control" name="grade" id="kelas">
+                  <select class="form-control" name="class" id="kelas">
                     <option value="">-- pilih kelas --</option>
                     <option value="X">X</option>
                     <option value="XI">XI</option>

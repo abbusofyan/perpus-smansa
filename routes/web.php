@@ -33,6 +33,8 @@ Route::group(['prefix'=>'admin','as'=>'admin.', 'middleware' => ['auth', 'admin'
         Route::get('/', ['as' => 'index', 'uses' => 'AnggotaController@index']);
         Route::get('/generateQrCode', ['as' => 'generateQrCode', 'uses' => 'AnggotaController@generateQrCode']);
         Route::post('/store', ['as' => 'store', 'uses' => 'AnggotaController@store']);
+        Route::get('/detail/{id}', ['as' => 'detail', 'uses' => 'AnggotaController@detail']);
+
     });
 
     Route::group(['prefix'=>'peminjaman','as'=>'peminjaman.'], function(){
@@ -53,6 +55,11 @@ Route::group(['prefix'=>'member','as'=>'member.'], function(){
     Route::get('/history', ['as' => 'history', 'uses' => 'MemberController@history']);
     Route::get('/perpanjang', ['as' => 'perpanjang', 'uses' => 'MemberController@perpanjang']);
     Route::get('/kartu_anggota', ['as' => 'kartu_anggota', 'uses' => 'MemberController@kartu_anggota']);
+    Route::group(['prefix'=>'profile','as'=>'profile.'], function(){
+        Route::get('/', ['as' => 'index', 'uses' => 'ProfileController@index']);
+        Route::post('/update_profile/{id}', ['as' => 'update_profile', 'uses' => 'ProfileController@update_profile']);
+
+    });
 
     // Route::group(['prefix'=>'buku','as'=>'buku.'], function(){
     //     Route::get('/', ['as' => 'index', 'uses' => 'BukuController@index']);

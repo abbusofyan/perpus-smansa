@@ -50,4 +50,8 @@ class User extends Authenticatable
     {
         return $this->level; // this looks for an admin column in your users table
     }
+
+    public function member() {
+      return $this->hasOne(Member::class);
+    }
 }

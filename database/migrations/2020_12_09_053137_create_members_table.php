@@ -16,13 +16,13 @@ class CreateMembersTable extends Migration
         Schema::create('members', function (Blueprint $table) {
             $table->id();
             $table->string('user_id');
-            $table->string('phone_number');
-            $table->string('email');
-            $table->string('address');
-            $table->string('class');
-            $table->string('major');
-            $table->string('year_enrolled');
-            $table->string('year_graduated');
+            $table->string('phone_number')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('class')->nullable();
+            $table->string('major')->nullable();
+            $table->string('year_enrolled')->nullable();
+            $table->string('year_graduated')->nullable();
             $table->timestamps();
         });
     }

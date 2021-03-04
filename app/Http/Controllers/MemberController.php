@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
 
 class MemberController extends Controller
 {
@@ -25,7 +26,8 @@ class MemberController extends Controller
     }
 
     public function kartu_anggota() {
-      return view('member.kartu_anggota');
+      $user = User::find(auth()->user()->id);
+      return view('member.kartu_anggota', compact('user'));
     }
 
 }

@@ -72,6 +72,13 @@
             </a>
         </li>
 
+        <li class="nav-item {{ Request::segment(2) === 'profile' ? 'active' : null }}">
+            <a class="nav-link" href="{{ route('member.profile.index') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>Profile</span>
+            </a>
+        </li>
+
         <li class="nav-item {{ Request::segment(2) === 'kartu_anggota' ? 'active' : null }}">
             <a class="nav-link" href="{{ route('member.kartu_anggota') }}">
                 <i class="fas fa-fw fa-id-card"></i>

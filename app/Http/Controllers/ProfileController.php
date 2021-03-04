@@ -6,6 +6,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use App\Member;
 
 class ProfileController extends Controller
 {
@@ -16,7 +17,17 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile');
+        $user = User::with('member')->where('id', auth()->user()->id)->first();
+        return view('member.profile', compact('user'));
+    }
+
+    public function update_profile(Request $request, $id) {
+      $member = Member::find($id);
+      $member->phone_number = $request->phone_number;
+      $member->email = $request->email;
+      $member->address = $request->address;
+      $member->save();
+      return redirect()->back()->with(['success' => 'Profile berhasil di udpate']);
     }
 
     public function update(Request $request)

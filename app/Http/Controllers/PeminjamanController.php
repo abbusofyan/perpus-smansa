@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use App\User;
+
 
 class PeminjamanController extends Controller
 {
@@ -19,6 +21,7 @@ class PeminjamanController extends Controller
 
     public function create() {
       $books = Book::all();
-      return view('admin.peminjaman.create', compact('books'));
+      $users = User::where('level', 2)->get();
+      return view('admin.peminjaman.create', compact('books', 'users'));
     }
 }

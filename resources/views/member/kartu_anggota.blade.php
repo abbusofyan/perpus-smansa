@@ -16,9 +16,9 @@
       <b class="text-white">Kartu Anggota Perpustakaan SMAN 1 Depok</b>
     </div>
     <div class="card text-center">
-      <h5 class="mt-3">Nama : Abbu Sofyan</h5>
-      <h5>NISN : 50764169</h5>
-      <h5>Kelas : XIPA3</h5>
+      <h5 class="mt-3">Nama : {{$user->name}}</h5>
+      <h5>NISN : {{$user->nis}}</h5>
+      <h5>Kelas : {{$user->member->major}}-{{$user->member->class}}</h5>
       <hr>
       <div class="mt-4 d-flex justify-content-center mb-4" id="qrcode"></div>
     </div>
@@ -40,7 +40,7 @@
     colorLight : "#ffffff",
     correctLevel : QRCode.CorrectLevel.H
 });
-  qrcode.makeCode('asdasdadas');
+  qrcode.makeCode('{{$user->qr_code}}');
 
 </script>
 @endsection
